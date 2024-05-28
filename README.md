@@ -1,8 +1,10 @@
-# Fleek Functions Runtime Declarations
+# Fleek Functions - Global APIs
 
-Re-render docs:
+## Development
+
+Render docs locally:
 
 ```bash
-cat dts/* > index.d.ts
-deno doc --html index.d.ts
+cat dts/* > index.d.ts 
+deno doc --html --name="Fleek Functions - Global APIs" index.d.ts
 ```
