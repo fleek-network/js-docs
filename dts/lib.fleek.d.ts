@@ -1,6 +1,6 @@
 /** Handle to blockstore content.
  * Utility for traversing the proof and reading blocks from the blockstore.
- * @property {Uint8Array} proof - Blake3 proof of the content
+ * @property {Uint8Array} proof - Raw blake3 proof of the content
  * @property {number} length - Number of blocks in the content
  * @category Fleek APIs
  */
@@ -8,7 +8,12 @@ declare class ContentHandle {
   constructor(proof: Uint8Array);
   proof: Uint8Array;
   length: number;
-  read(id: any): any;
+  /**
+    * Read a given block index from the blockstore
+    * @param {number} idx - Index of block to read
+    * @returns {Promise<Uint8Array>}
+    */
+  read(idx: number): Promise<Uint8Array>;
 }
 
 /** @category Fleek APIs */
