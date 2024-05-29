@@ -28,7 +28,7 @@ jobs:
       - name: Generate docs
         run: |
           cat dts/* > index.d.ts
-          deno doc --html --name="Fleek Functions - Global APIs" index.d.ts
+          deno doc --html --name="Fleek Runtime APIs" index.d.ts
           mv index.d.ts docs/
           sed -i "s|$((printf "file://" && realpath index.d.ts) | sed -e "s|/|\&#x2F;|g")|../index.d.ts|g" docs/**/*.html
       - uses: actions/upload-pages-artifact@v3

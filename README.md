@@ -1,4 +1,4 @@
-# Fleek Functions - Global APIs
+# Fleek Runtime APIs
 
 ## Development
 
@@ -9,7 +9,7 @@ Render docs locally:
 cat dts/* > index.d.ts
 
 # Generate html documentation
-deno doc --html --name="Fleek Functions - Global APIs" index.d.ts
+deno doc --html --name="Fleek Runtime APIs" index.d.ts
 
 # Move the source to the html output
 mv index.d.ts docs/
