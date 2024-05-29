@@ -3,35 +3,42 @@
   * @category Fleek Node API
   */
 declare namespace Fleek {
-  /** Fetch some blake3 content
-   * @param {Uint8Array} hash - Blake3 hash of content to fetch
-   * @returns {Promise<bool>} True if the fetch was successful
-   */
+  /** Fetch some blake3 content, ensuring it's in the blockstore.
+    * @param {Uint8Array} hash - Blake3 hash of content to fetch
+    * @returns {Promise<bool>} True if the fetch was successful
+    * @category Fleek Node API
+    */
   function fetchBlake3(hash: Uint8Array): Promise<boolean>;
-  /** Load a blockstore handle to some blake3 content
-   * @param {Uint8Array} hash - Blake3 hash of the content
-   * @returns {Promise<ContentHandle>}
-   */
+
+  /** Load a content handle to some blake3 content in the blockstore.
+    * @param {Uint8Array} hash - Blake3 hash of the content
+    * @returns {Promise<ContentHandle>}
+    * @category Fleek Node API
+    */
   function loadContent(hash: Uint8Array): Promise<ContentHandle>;
-  /** Fetch a clients FLK balance.
-   * @param {Uint8Array} account - The balance to check
-   * @returns {Promise<BigInt>} BigInt of the balance
-   */
+
+  /** Query application for a client's FLK balance.
+    * @param {Uint8Array} account - The balance to check
+    * @returns {Promise<BigInt>} BigInt of the balance
+    * @category Fleek Node API
+    */
   function queryClientFlkBalance(account: Uint8Array): Promise<BigInt>;
-  /** Fetch a clients bandwidth balance.
-   * @param {Uint8Array} account - The balance to check
-   * @returns {Promise<BigInt>} BigInt of the balance
-   */
+
+  /** Query application for a client's bandwidth balance.
+    * @param {Uint8Array} account - The balance to check
+    * @returns {Promise<BigInt>} BigInt of the balance
+    * @category Fleek Node API
+    */
   function queryClientBandwidthBalance(
     account: Uint8Array,
   ): Promise<BigInt>;
 
   /** Handle to blockstore content.
-   * Utility for traversing the proof and reading blocks from the blockstore.
-   * @property {Uint8Array} proof - Raw blake3 proof of the content
-   * @property {number} length - Number of blocks in the content
-   * @category Fleek Node API
-   */
+    * Holds the proof for the content and traverses it, to read each inner block from the blockstore.
+    * @property {Uint8Array} proof - Raw blake3 proof of the content
+    * @property {number} length - Number of blocks in the content
+    * @category Fleek Node API
+    */
   class ContentHandle {
     constructor(proof: Uint8Array);
     proof: Uint8Array;
