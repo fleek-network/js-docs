@@ -68,8 +68,8 @@ declare namespace Fleek {
   type HttpRequest = {
     method: HttpRequestMethod;
     path: String;
-    headers?: Map<string, string>;
-    query?: Map<string, any>;
+    headers?: Record<string, string>;
+    query?: Record<string, any>;
     body?: any;
   };
 
@@ -77,8 +77,8 @@ declare namespace Fleek {
     * @category Fleek Node API
     */
   type HttpResponseHeaders =
-    | Map<string, string>
-    | Map<string, string[]>
+    | Record<string, string>
+    | Record<string, string[]>
     | [string, string][]
     | [string, string[]][];
 
