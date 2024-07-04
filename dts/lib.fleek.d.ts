@@ -84,13 +84,13 @@ declare namespace Fleek {
 
   /** HTTP Response object. When returned from a function that's requested over http, it will be used to
     * modify the http response. Otherwise, for non-http requests, the raw json object will be sent.
-    * @property {Number} code - Status code to use. Must be an unsigned integer that fits inside a u16.
+    * @property {Number} status - Status code to use. Must be an unsigned integer that fits inside a u16.
     * @property {Headers} headers - Array or map of header key values
     * @property {any} body - Body to send to client
     * @category Fleek Node API
     */
   type HttpResponse = {
-    code: number;
+    status: number;
     headers: HttpResponseHeaders;
     body: any;
   };
