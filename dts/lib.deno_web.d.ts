@@ -40,7 +40,7 @@ declare interface DOMException extends Error {
 /** @category Web APIs */
 declare var DOMException: {
   readonly prototype: DOMException;
-  new (message?: string, name?: string): DOMException;
+  new(message?: string, name?: string): DOMException;
   readonly INDEX_SIZE_ERR: 1;
   readonly DOMSTRING_SIZE_ERR: 2;
   readonly HIERARCHY_REQUEST_ERR: 3;
@@ -279,7 +279,7 @@ declare interface TextDecoder {
 /** @category Encoding API */
 declare var TextDecoder: {
   readonly prototype: TextDecoder;
-  new (label?: string, options?: TextDecoderOptions): TextDecoder;
+  new(label?: string, options?: TextDecoderOptions): TextDecoder;
 };
 
 /** @category Encoding API */
@@ -300,7 +300,7 @@ declare interface TextEncoder {
 /** @category Encoding API */
 declare var TextEncoder: {
   readonly prototype: TextEncoder;
-  new (): TextEncoder;
+  new(): TextEncoder;
 };
 
 /** @category Encoding API */
@@ -319,7 +319,7 @@ declare interface TextDecoderStream {
 /** @category Encoding API */
 declare var TextDecoderStream: {
   readonly prototype: TextDecoderStream;
-  new (label?: string, options?: TextDecoderOptions): TextDecoderStream;
+  new(label?: string, options?: TextDecoderOptions): TextDecoderStream;
 };
 
 /** @category Encoding API */
@@ -334,7 +334,7 @@ declare interface TextEncoderStream {
 /** @category Encoding API */
 declare var TextEncoderStream: {
   readonly prototype: TextEncoderStream;
-  new (): TextEncoderStream;
+  new(): TextEncoderStream;
 };
 
 /** A controller object that allows you to abort one or more DOM requests as and
@@ -415,8 +415,8 @@ declare interface FileReader extends EventTarget {
   onload: ((this: FileReader, ev: ProgressEvent<FileReader>) => any) | null;
   onloadend: ((this: FileReader, ev: ProgressEvent<FileReader>) => any) | null;
   onloadstart:
-    | ((this: FileReader, ev: ProgressEvent<FileReader>) => any)
-    | null;
+  | ((this: FileReader, ev: ProgressEvent<FileReader>) => any)
+  | null;
   onprogress: ((this: FileReader, ev: ProgressEvent<FileReader>) => any) | null;
   readonly readyState: number;
   readonly result: string | ArrayBuffer | null;
@@ -453,7 +453,7 @@ declare interface FileReader extends EventTarget {
 /** @category Web File API */
 declare var FileReader: {
   readonly prototype: FileReader;
-  new (): FileReader;
+  new(): FileReader;
   readonly DONE: number;
   readonly EMPTY: number;
   readonly LOADING: number;
@@ -493,7 +493,7 @@ declare interface Blob {
  */
 declare var Blob: {
   readonly prototype: Blob;
-  new (blobParts?: BlobPart[], options?: BlobPropertyBag): Blob;
+  new(blobParts?: BlobPart[], options?: BlobPropertyBag): Blob;
 };
 
 /** @category Web File API */
@@ -518,7 +518,7 @@ declare interface File extends Blob {
  */
 declare var File: {
   readonly prototype: File;
-  new (fileBits: BlobPart[], fileName: string, options?: FilePropertyBag): File;
+  new(fileBits: BlobPart[], fileName: string, options?: FilePropertyBag): File;
 };
 
 /** @category Streams API */
@@ -582,7 +582,7 @@ declare interface ReadableStreamBYOBReader {
 /** @category Streams API */
 declare var ReadableStreamBYOBReader: {
   readonly prototype: ReadableStreamBYOBReader;
-  new (stream: ReadableStream<Uint8Array>): ReadableStreamBYOBReader;
+  new(stream: ReadableStream<Uint8Array>): ReadableStreamBYOBReader;
 };
 
 /** @category Streams API */
@@ -595,7 +595,7 @@ declare interface ReadableStreamBYOBRequest {
 /** @category Streams API */
 declare var ReadableStreamBYOBRequest: {
   readonly prototype: ReadableStreamBYOBRequest;
-  new (): never;
+  new(): never;
 };
 
 /** @category Streams API */
@@ -650,7 +650,7 @@ declare interface ReadableStreamDefaultController<R = any> {
 /** @category Streams API */
 declare var ReadableStreamDefaultController: {
   readonly prototype: ReadableStreamDefaultController;
-  new (): never;
+  new(): never;
 };
 
 /** @category Streams API */
@@ -665,7 +665,7 @@ declare interface ReadableByteStreamController {
 /** @category Streams API */
 declare var ReadableByteStreamController: {
   readonly prototype: ReadableByteStreamController;
-  new (): never;
+  new(): never;
 };
 
 /** @category Streams API */
@@ -790,7 +790,7 @@ declare interface WritableStreamDefaultController {
 /** @category Streams API */
 declare var WritableStreamDefaultController: {
   readonly prototype: WritableStreamDefaultController;
-  new (): never;
+  new(): never;
 };
 
 /** This Streams API interface is the object returned by
@@ -833,7 +833,7 @@ declare interface TransformStreamDefaultController<O = any> {
 /** @category Streams API */
 declare var TransformStreamDefaultController: {
   readonly prototype: TransformStreamDefaultController;
-  new (): never;
+  new(): never;
 };
 
 /** @category Streams API */
@@ -923,7 +923,7 @@ declare interface MessageChannel {
  */
 declare var MessageChannel: {
   readonly prototype: MessageChannel;
-  new (): MessageChannel;
+  new(): MessageChannel;
 };
 
 /** @category DOM APIs */
@@ -990,18 +990,11 @@ declare interface MessagePort extends EventTarget {
  */
 declare var MessagePort: {
   readonly prototype: MessagePort;
-  new (): never;
+  new(): never;
 };
 
 /**
  * An API for compressing a stream of data.
- *
- * @example
- * ```ts
- * await Deno.stdin.readable
- *   .pipeThrough(new CompressionStream("gzip"))
- *   .pipeTo(Deno.stdout.writable);
- * ```
  *
  * @category Compression Streams API
  */
@@ -1012,13 +1005,6 @@ declare interface CompressionStream {
 
 /**
  * An API for compressing a stream of data.
- *
- * @example
- * ```ts
- * await Deno.stdin.readable
- *   .pipeThrough(new CompressionStream("gzip"))
- *   .pipeTo(Deno.stdout.writable);
- * ```
  *
  * @category Compression Streams API
  */
@@ -1031,21 +1017,11 @@ declare var CompressionStream: {
    * Throws a `TypeError` if the format passed to the constructor is not
    * supported.
    */
-  new (format: string): CompressionStream;
+  new(format: string): CompressionStream;
 };
 
 /**
  * An API for decompressing a stream of data.
- *
- * @example
- * ```ts
- * const input = await Deno.open("./file.txt.gz");
- * const output = await Deno.create("./file.txt");
- *
- * await input.readable
- *   .pipeThrough(new DecompressionStream("gzip"))
- *   .pipeTo(output.writable);
- * ```
  *
  * @category Compression Streams API
  */
@@ -1056,16 +1032,6 @@ declare interface DecompressionStream {
 
 /**
  * An API for decompressing a stream of data.
- *
- * @example
- * ```ts
- * const input = await Deno.open("./file.txt.gz");
- * const output = await Deno.create("./file.txt");
- *
- * await input.readable
- *   .pipeThrough(new DecompressionStream("gzip"))
- *   .pipeTo(output.writable);
- * ```
  *
  * @category Compression Streams API
  */
@@ -1078,5 +1044,5 @@ declare var DecompressionStream: {
    * Throws a `TypeError` if the format passed to the constructor is not
    * supported.
    */
-  new (format: string): DecompressionStream;
+  new(format: string): DecompressionStream;
 };

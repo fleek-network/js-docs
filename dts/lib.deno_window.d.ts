@@ -44,60 +44,56 @@ declare interface Location {
    * browsing contexts, from the parent browsing context to the top-level
    * browsing context.
    *
-   * Always empty in Deno. */
+   * Always empty. */
   readonly ancestorOrigins: DOMStringList;
   /** Returns the Location object's URL's fragment (includes leading "#" if
    * non-empty).
    *
-   * Cannot be set in Deno. */
+   * Cannot be set. */
   hash: string;
   /** Returns the Location object's URL's host and port (if different from the
    * default port for the scheme).
    *
-   * Cannot be set in Deno. */
+   * Cannot be set. */
   host: string;
   /** Returns the Location object's URL's host.
    *
-   * Cannot be set in Deno. */
+   * Cannot be set. */
   hostname: string;
   /** Returns the Location object's URL.
    *
-   * Cannot be set in Deno. */
+   * Cannot be set. */
   href: string;
   toString(): string;
   /** Returns the Location object's URL's origin. */
   readonly origin: string;
   /** Returns the Location object's URL's path.
    *
-   * Cannot be set in Deno. */
+   * Cannot be set. */
   pathname: string;
   /** Returns the Location object's URL's port.
    *
-   * Cannot be set in Deno. */
+   * Cannot be set. */
   port: string;
   /** Returns the Location object's URL's scheme.
    *
-   * Cannot be set in Deno. */
+   * Cannot be set. */
   protocol: string;
   /** Returns the Location object's URL's query (includes leading "?" if
    * non-empty).
    *
-   * Cannot be set in Deno. */
+   * Cannot be set. */
   search: string;
   /** Navigates to the given URL.
    *
-   * Cannot be set in Deno. */
+   * Cannot be set. */
   assign(url: string): void;
-  /** Reloads the current page.
-   *
-   * Disabled in Deno. */
+  /** Reloads the current page. Disabled. */
   reload(): void;
   /** @deprecated */
   reload(forcedReload: boolean): void;
   /** Removes the current page from the session history and navigates to the
-   * given URL.
-   *
-   * Disabled in Deno. */
+   * given URL. Disabled. */
   replace(url: string): void;
 }
 
